@@ -41,6 +41,7 @@ h3 {
     margin-top: .5rem;
     margin-bottom: .5rem;
     letter-spacing: .02rem;
+    font-style: italic;
 }
 
 p,
@@ -57,5 +58,6 @@ ol {
     letter-spacing: .05rem;
     line-height: 1.9rem;
     margin-bottom: 2rem;
+    text-align: left;
 
 }
