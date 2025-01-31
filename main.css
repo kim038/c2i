@@ -1,0 +1,61 @@
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+h1 {
+    font-family: soleil;
+    background-color: orange;
+    color: white;
+    padding-top: 1rem;
+    margin-top: -1rem;
+    margin-left: -.5rem;
+    margin-right: -.5rem;
+    padding: 13rem;
+    font-size: 4rem;
+    line-height: 7rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-family: soleil;
+    padding-left: 8rem;
+    margin-left: -.5rem;
+    margin-right: -.5rem;
+    padding-right: 8rem;
+    color: orange;
+    font-weight: 500;
+    margin-top: 4rem;
+    margin-bottom: 5rem;
+    letter-spacing: .02rem;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-family: soleil;
+    font-weight: normal;
+    padding-left: 8rem;
+    margin-left: -.5rem;
+    margin-right: -.5rem;
+    padding-right: 8rem;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    letter-spacing: .02rem;
+}
+
+p,
+ol {
+    text-indent: 2rem;
+    padding-top: 1.5rem;
+    font-family: soleil;
+    font-weight: normal;
+    padding-left: 8rem;
+    margin-left: -.5rem;
+    margin-right: -.5rem;
+    word-spacing: .04rem;
+    padding-right: 20rem;
+    letter-spacing: .05rem;
+    line-height: 1.9rem;
+    margin-bottom: 2rem;
+
+}
