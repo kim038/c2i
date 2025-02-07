@@ -28,7 +28,7 @@ body {
     max-width: 100%;
     max-height: 100%;
     aspect-ratio: 1/1;
-    border-radius: 2rem;
+    border-radius: 20rem;
 }
 
 .card__more {
@@ -42,11 +42,13 @@ body {
     width: 10rem;
     font-family: system-ui;
     color: white;
+    border-radius: 3em;
+    transition: background-color 0.2s linear;
 
 }
 
 .card__more:hover {
-    border-radius: 3em;
+    background-color: rgb(223, 72, 72);
     transition: border-radius 0.2s linear;
 }
 
