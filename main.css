@@ -1,63 +1,85 @@
 body {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 99, 99);
 }
 
-h1 {
-    font-family: soleil;
-    background-color: orange;
-    color: white;
+.card {
+    font-family: system-ui;
+    line-height: 1.3;
+    padding: 2rem;
+    background-color: rgb(255, 206, 45);
+    border-radius: 2rem;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.card__title {
+    font-size: 2.5rem;
+}
+
+.card__excerpt {}
+
+.card__image {
+    margin: 1.5rem 0;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 2rem;
+}
+
+.card__more {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
     padding-top: 1rem;
-    margin-top: -1rem;
-    margin-left: -.5rem;
-    margin-right: -.5rem;
-    padding: 13rem;
-    font-size: 4rem;
-    line-height: 7rem;
+    padding-bottom: 1rem;
+    background-color: rgb(255, 99, 99);
+    width: 10rem;
+    font-family: system-ui;
+    color: white;
+
 }
 
-h2 {
-    font-size: 1.5rem;
-    font-family: soleil;
-    padding-left: 8rem;
-    margin-left: -.5rem;
-    margin-right: -.5rem;
-    padding-right: 8rem;
-    color: orange;
-    font-weight: 500;
-    margin-top: 4rem;
-    margin-bottom: 5rem;
-    letter-spacing: .02rem;
-    text-transform: uppercase;
+.card__more:hover {
+    border-radius: 3em;
+    transition: border-radius 0.2s linear;
 }
 
-h3 {
-    font-size: 1.5rem;
-    font-family: soleil;
-    font-weight: normal;
-    padding-left: 8rem;
-    margin-left: -.5rem;
-    margin-right: -.5rem;
-    padding-right: 8rem;
-    margin-top: .5rem;
-    margin-bottom: .5rem;
-    letter-spacing: .02rem;
-    font-style: italic;
+.card__more:active {
+    background-color: rgb(40, 40, 40);
 }
 
-p,
-ol {
-    text-indent: 2rem;
-    padding-top: 1.5rem;
-    font-family: soleil;
-    font-weight: normal;
-    padding-left: 8rem;
-    margin-left: -.5rem;
-    margin-right: -.5rem;
-    word-spacing: .04rem;
-    padding-right: 20rem;
-    letter-spacing: .05rem;
-    line-height: 1.9rem;
-    margin-bottom: 2rem;
-    text-align: left;
+@media screen and (min-width: 1024px) {
+    .card {
+        width: 40vw;
+        height: auto;
+    }
 
+    .card__title {
+        font-size: 3.75rem;
+        margin: 3rem;
+    }
+
+    .card__excerpt {
+        font-size: 1 rem;
+        margin: 3rem;
+    }
+
+    .card__image {
+        max-width: 88%;
+    }
+
+    .card__more {
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .card__more:hover {}
+
+    .card__more:active {}
 }
