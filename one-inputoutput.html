@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="input.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 INPUT 1 OUTPUT TEMPLATE</title>
+    <h1>Output Exercise</h1>
+    <p>Type in a letter and get an assigned animal!</p>
+    <style>
+        /* STYLE FOR THE INPUT FIELD */
+        #charInput {
+            width: 300px;
+            height: 30px;
+            border-radius: 50px;
+            margin-left: 20px;
+            margin-right: 20px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        /* STYLE FOR THE SUBMIT BUTTON */
+        #submitButton {
+            font-family: soleil;
+            color: white;
+            font-size: 20px;
+            background-color: coral;
+            border: none;
+            padding: 20px;
+            border-radius: 50px;
+            width: 200px;
+            align-items: center;
+
+
+        }
+
+        /* STYLE FOR THE IMAGE */
+        #displayedImage {
+            display: none;
+            /* This line is mandatory */
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- INPUT FIELD FOR 1 CHARACTER -->
+    <input type="text" id="charInput" maxlength="1">
+
+    <!-- BUTTON TO DISPLAY IMAGE -->
+    <button onclick="displayImage()" id="submitButton">Show Image</button>
+
+    <!-- IMAGE TO DISPLAY -->
+    <img id="displayedImage" src="" alt="Displayed Image">
+
+
+    <!-- Image Display Script Below -->
+    <script>
+        // Array of images
+        // DIRECTIONS: UPDATE THE URLS WITH THE RELATIVE LINKS OF YOUR IMAGES
+        const images = [
+            "https://images.unsplash.com/photo-1524772898162-11911ee550c4?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=A", //A
+            "https://images.unsplash.com/photo-1595173425119-1c54835c1874?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=B", //B
+            "https://images.unsplash.com/photo-1446625486304-c23811ccd1b4?q=80&w=2974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=C", //C
+            "https://images.unsplash.com/photo-1537694513497-5f0b0ec361c7?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=D", //D
+            "https://images.unsplash.com/photo-1548714859-18c34a4c384a?q=80&w=3174&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=E", //E
+            "https://plus.unsplash.com/premium_photo-1664297692493-95729e262e92?q=80&w=2029&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=F", //F
+            "https://images.unsplash.com/photo-1619203922058-7c42019fdd37?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dtext=G", //G
+            "https://images.unsplash.com/photo-1605369179729-4036b4d829cb?q=80&w=2990&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=H", //H
+            "https://images.unsplash.com/photo-1623692746862-b2e07bedef7e?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=I", //I
+            "https://images.unsplash.com/photo-1593426474014-d7e413744436?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=J", //J
+            "https://images.unsplash.com/photo-1568198972020-de1dab9ac71a?q=80&w=3074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=K", //K
+            "https://images.unsplash.com/photo-1569691105526-05dc38bcf7f2?q=80&w=2964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=L", //L
+            "https://images.unsplash.com/photo-1675222537961-1b2c707285c7?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=M", //M
+            "https://images.unsplash.com/photo-1514906438676-20da14bb8dad?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=N", //N
+            "https://images.unsplash.com/photo-1589860170912-6b83cf6f8809?q=80&w=3008&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=O", //O
+            "https://images.unsplash.com/photo-1551986782-d0169b3f8fa7?q=80&w=2495&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=P", //P
+            "https://images.unsplash.com/photo-1596543570665-a34c7aeb1da1?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=Q", //Q
+            "https://images.unsplash.com/photo-1577936558471-8b80b49b0117?q=80&w=2971&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=R", //R
+            "https://images.unsplash.com/photo-1621139265009-11ce7f5d441f?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=S", //S
+            "https://images.unsplash.com/photo-1564360827970-90aea1384d80?q=80&w=2957&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=T", //T
+            "https://images.unsplash.com/photo-1641414733742-7e928c48e6eb?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=U", //U
+            "https://images.unsplash.com/photo-1580028770404-8e91010a39ca?q=80&w=2951&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=V", //V
+            "https://images.unsplash.com/photo-1615018160530-d37d31520d87?q=80&w=3126&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=W", //W
+            "https://images.unsplash.com/photo-1550698869-9707292692a1?q=80&w=2975&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=X", //X
+            "https://images.unsplash.com/photo-1549874682-13ffd26ee224?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=Y", //Y
+            "https://images.unsplash.com/photo-1526319238109-524eecb9b913?q=80&w=2924&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?text=Z"  //Z
+        ];
+
+        function displayImage() {
+            const input = document.getElementById("charInput").value.toUpperCase();
+            const imgElement = document.getElementById("displayedImage");
+
+            // Assign an image based on character (A-Z)
+            const index = input.charCodeAt(0) - 65; // 'A' is 65 in ASCII
+            if (index >= 0 && index < images.length) {
+                imgElement.src = images[index];
+                imgElement.style.display = "block";
+            } else {
+                /* 
+                alert("Please enter a letter between A and Z.");
+                imgElement.style.display = "none";
+                */
+
+                // IF INVALID INPUT IS ENTERED, DISPLAY ALTERNATE IMAGE
+                imgElement.src = "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmtkdnJhMXY4Njd1cXR3MTM3MW1nMzZ1NXNhNHlhOHA0MWF2dDUzdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13dRJkj5wgKq9q/giphy.gif"
+                imgElement.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
