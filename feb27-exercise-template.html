@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algorithmic Combinations</title>
+  <style>
+    /* Base styles for better mobile responsiveness */
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .input-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    /* Style for the input fields - Students can modify */
+    .input-box {
+      width: 80px;
+      height: 80px;
+      font-size: 32px;
+      text-align: center;
+      text-transform: uppercase;
+      border: 3px solid #3498db;
+      border-radius: 10px;
+    }
+
+    /* Style for the submit button - Students can modify */
+    #submitButton {
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #2ecc71;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #submitButton:hover {
+      background-color: #27ae60;
+    }
+
+    /* Result display area */
+    .result-container {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #f8f9fa;
+      min-height: 150px;
+      width: 100%;
+    }
+
+    #resultImage {
+      max-width: 100%;
+      max-height: 300px;
+      display: none;
+    }
+
+    #resultText {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    /* Add responsiveness */
+    @media (max-width: 600px) {
+      .input-box {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Algorithmic Combinations</h1>
+
+  <div class="container">
+    <div class="instructions">
+      <p>Enter one letter (A-Z) in each box and see what happens!</p>
+    </div>
+
+    <div class="input-section">
+      <input type="text" class="input-box" id="input1" maxlength="1" />
+      <input type="text" class="input-box" id="input2" maxlength="1" />
+    </div>
+
+    <button id="submitButton" onclick="processInputs()">Show Result</button>
+
+    <div class="result-container">
+      <img id="resultImage" alt="Result Image" />
+      <div id="resultText"></div>
+    </div>
+  </div>
+
+  <script>
+    function processInputs() {
+      // Get input values and convert to uppercase
+      const input1 = document.getElementById("input1").value.toUpperCase();
+      const input2 = document.getElementById("input2").value.toUpperCase();
+
+      // Get ASCII values (A=65, B=66, C=67, etc.)
+      const value1 = input1.charCodeAt(0);
+      const value2 = input2.charCodeAt(0);
+
+      // Elements to display results
+      const resultImage = document.getElementById("resultImage");
+      const resultText = document.getElementById("resultText");
+
+      // Clear previous results
+      resultImage.style.display = "none";
+      resultText.innerHTML = "";
+
+      // Check if inputs are valid (letters A-Z)
+      if (value1 < 65 || value1 > 90 || value2 < 65 || value2 > 90) {
+        resultText.innerHTML = "Please enter letters A-Z only";
+        return;
+      }
+
+      // EXAMPLE CONDITIONS - Students will modify these!
+
+      // Example 1: Check if inputs are the same
+      if (input1 === input2) {
+        resultImage.src = "https://loremflickr.com/320/240/dog";
+        resultImage.style.display = "block";
+        resultText.innerHTML =
+          "You entered the same letter twice! Here's a dog!";
+      }
+
+
+      if (value1 + value2 === 133 && value1 < value2) {
+        resultImage.src = "https://loremflickr.com/320/240/canada";
+        resultImage.style.display = "block";
+        resultText.innerHTML =
+          "You entered the abbreviation for British Columbia!";
+      }
+
+      if (value1 + value2 === 133 && value1 > value2) {
+        resultImage.src = "https://loremflickr.com/320/240/canada";
+        resultImage.style.display = "block";
+        resultText.innerHTML =
+          "Try reversing the letters for a surprise!";
+      }
+
+      if (value1 + value2 === 157 && value1 > value2) {
+        resultImage.src = "https://loremflickr.com/320/240/leaf";
+        resultImage.style.display = "block";
+        resultText.innerHTML =
+          "You entered the abbreviation for Ontario!";
+      }
+
+      if (value1 + value2 === 157 && value1 < value2) {
+        resultImage.src = "https://loremflickr.com/320/240/canada";
+        resultImage.style.display = "block";
+        resultText.innerHTML =
+          "Try reversing the letters for a surprise!";
+      }
+
+      if (value1 + value2 === 131 && value1 < value2) {
+        resultImage.src = "https://loremflickr.com/320/240/canada";
+        resultImage.style.display = "block";
+        resultText.innerHTML =
+          "You entered the abbreviation for Alberta!";
+      }
+      if (value1 + value2 === 131 && value1 > value2) {
+        resultImage.src = "https://loremflickr.com/320/240/canada";
+        resultImage.style.display = "block";
+        resultText.innerHTML =
+          "Try reversing the letters for a surprise!";
+      }
+
+      if (value1 + value2 === 148 && value1 > value2) {
+        resultImage.src = "https://loremflickr.com/320/240/canada";
+        resultImage.style.display = "block";
+        resultText.innerHTML =
+          "You entered the abbreviation for Quebec!";
+      }
+
+      if (value1 + value2 === 148 && value1 < value2) {
+        resultImage.src = "https://loremflickr.com/320/240/canada";
+        resultImage.style.display = "block";
+        resultText.innerHTML =
+          "Try reversing the letters for a surprise!";
+      }
+
+
+
+      if (value1 + value2 === 173 && value1 > value2) {
+        resultImage.src = "https://loremflickr.com/320/240/canada";
+        resultImage.style.display = "block";
+        resultText.innerHTML =
+          "You entered the abbreviation for Yukon Territory!";
+      }
+
+      if (value1 + value2 === 173 && value1 < value2) {
+        resultImage.src = "https://loremflickr.com/320/240/arctic";
+        resultImage.style.display = "block";
+        resultText.innerHTML =
+          "Try reversing the letters for a surprise!";
+      }
+
+
+      if (value2 - value1 === 1 && value1 != 65 && value1 != 66) {
+        resultImage.src = "https://loremflickr.com/320/240/arctic";
+        resultImage.style.display = "block";
+        resultText.innerHTML =
+          "These letters are next to each other on the alphabet!";
+      }
+
+      if (value1 === value2) {
+        resultImage.src = "https://loremflickr.com/320/240/arctic";
+        resultImage.style.display = "block";
+        resultText.innerHTML =
+          "You entered the same letter twice!";
+      }
+
+
+
+      // Example 3: Calculate the "distance" between letters
+      const distance = Math.abs(value1 - value2);
+
+      // If distance is exactly 5
+      if (distance % 3 === 0 && value2 - value1 != 0) {
+        resultImage.src = "https://loremflickr.com/320/240/bird";
+        resultImage.style.display = "block";
+        resultText.innerHTML =
+          "The distance between these letters are divisible by 3. Enjoy a bird!";
+      }
+
+      // Example 4: Sum of ASCII values is divisible by 10
+      const sum = value1 + value2;
+      if (sum % 10 === 0) {
+        resultImage.src = "https://loremflickr.com/320/240/fish";
+        resultImage.style.display = "block";
+        resultText.innerHTML =
+          "Magic number! Sum is " + sum + ". Here's a fish!";
+      }
+
+      // If no conditions matched
+      if (resultText.innerHTML === "") {
+        resultText.innerHTML = "Try different letters!";
+      }
+
+      // Show debugging info (students can use this to understand what's happening)
+      console.log("Input 1:", input1, "ASCII:", value1);
+      console.log("Input 2:", input2, "ASCII:", value2);
+      console.log("Distance:", distance);
+      console.log("Sum:", sum);
+    }
+  </script>
+</body>
+
+</html>
