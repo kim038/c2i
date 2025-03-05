@@ -15,6 +15,19 @@
       text-align: center;
     }
 
+    h1 {
+      margin-top: 50px;
+      font-family: helvetica;
+      font-weight: 600;
+      font-size: 25px;
+    }
+
+    p {
+      margin-top: 25px;
+      font-family: helvetica;
+      width: 200px;
+    }
+
     .container {
       display: flex;
       flex-direction: column;
@@ -26,35 +39,46 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
+      gap: 20px;
       margin-bottom: 15px;
     }
 
     /* Style for the input fields - Students can modify */
     .input-box {
-      width: 80px;
+      margin-top: 30px;
+      width: 300px;
       height: 80px;
       font-size: 32px;
-      text-align: center;
+      padding-left: 30px;
+      text-align: left;
       text-transform: uppercase;
-      border: 3px solid #3498db;
-      border-radius: 10px;
+      background-color: #b2eced;
+      border: 3px solid #b2eced;
+      border-radius: 50px;
+      color: #0ea1a3;
+      margin-top: 1px;
+    }
+
+    .input-box::placeholder {
+      color: #7edadc;
     }
 
     /* Style for the submit button - Students can modify */
     #submitButton {
       padding: 15px 30px;
       font-size: 18px;
-      background-color: #2ecc71;
+      text-transform: uppercase;
+      background-color: #2ec9cc;
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 25px;
       cursor: pointer;
       transition: background-color 0.3s;
+      margin-top: 20px;
     }
 
     #submitButton:hover {
-      background-color: #27ae60;
+      background-color: #13aaac;
     }
 
     /* Result display area */
@@ -62,20 +86,28 @@
       margin-top: 30px;
       padding: 20px;
       border-radius: 10px;
-      background-color: #f8f9fa;
+      border: 2px solid #13aaac;
       min-height: 150px;
       width: 100%;
     }
 
     #resultImage {
-      max-width: 100%;
-      max-height: 300px;
+      width: 300px;
+      height: 300px;
       display: none;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 20px;
+      margin-top: 30px;
+      object-fit: cover;
+
     }
 
     #resultText {
-      font-size: 24px;
-      margin-top: 20px;
+      font-size: 20px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      font-family: helvetica, sans-serif;
     }
 
     /* Add responsiveness */
@@ -94,12 +126,16 @@
 
   <div class="container">
     <div class="instructions">
-      <p>Enter one letter (A-Z) in each box and see what happens!</p>
+      <p>Enter 2 letters (A-Z)!</p>
     </div>
 
     <div class="input-section">
-      <input type="text" class="input-box" id="input1" maxlength="1" />
-      <input type="text" class="input-box" id="input2" maxlength="1" />
+      <input type="text" class="input-box" placeholder="A" id="input1" maxlength="1" />
+
+    </div>
+    <div class="input-section">
+
+      <input type="text" class="input-box" placeholder="B" id="input2" maxlength="1" />
     </div>
 
     <button id="submitButton" onclick="processInputs()">Show Result</button>
@@ -146,56 +182,55 @@
 
 
       if (value1 + value2 === 133 && value1 < value2) {
-        resultImage.src = "https://loremflickr.com/320/240/canada";
-        resultImage.style.display = "block";
         resultText.innerHTML =
           "You entered the abbreviation for British Columbia!";
+        resultImage.src = "https://images.blacktomato.com/2024/11/BritishColumbiaHERO-min.jpg?auto=compress%2Cformat&fit=crop&h=1700&ixlib=php-3.3.1&q=82&w=1668&s=f1eb420834e4f38774adf5e476be0206";
+        resultImage.style.display = "block";
+
       }
 
       if (value1 + value2 === 133 && value1 > value2) {
-        resultImage.src = "https://loremflickr.com/320/240/canada";
-        resultImage.style.display = "block";
         resultText.innerHTML =
           "Try reversing the letters for a surprise!";
       }
 
       if (value1 + value2 === 157 && value1 > value2) {
-        resultImage.src = "https://loremflickr.com/320/240/leaf";
-        resultImage.style.display = "block";
         resultText.innerHTML =
           "You entered the abbreviation for Ontario!";
+        resultImage.src = "https://www.thoughtco.com/thmb/wuEcSPFCojJ-8zIUswQVb02XX6M=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-685015187-597dd84a519de2001182016b.jpg";
+        resultImage.style.display = "block";
+
       }
 
       if (value1 + value2 === 157 && value1 < value2) {
-        resultImage.src = "https://loremflickr.com/320/240/canada";
-        resultImage.style.display = "block";
+
         resultText.innerHTML =
           "Try reversing the letters for a surprise!";
       }
 
       if (value1 + value2 === 131 && value1 < value2) {
-        resultImage.src = "https://loremflickr.com/320/240/canada";
-        resultImage.style.display = "block";
         resultText.innerHTML =
           "You entered the abbreviation for Alberta!";
+        resultImage.src = "https://t4.ftcdn.net/jpg/03/97/26/75/360_F_397267535_WBLbN5gcKVbQBx4wbBuifiaGd93vGnBc.jpg";
+        resultImage.style.display = "block";
       }
       if (value1 + value2 === 131 && value1 > value2) {
-        resultImage.src = "https://loremflickr.com/320/240/canada";
-        resultImage.style.display = "block";
+
         resultText.innerHTML =
           "Try reversing the letters for a surprise!";
       }
 
       if (value1 + value2 === 148 && value1 > value2) {
-        resultImage.src = "https://loremflickr.com/320/240/canada";
-        resultImage.style.display = "block";
         resultText.innerHTML =
           "You entered the abbreviation for Quebec!";
+        resultImage.src = "https://media.cntraveler.com/photos/65258540509d8b2a9fd069e8/16:9/w_2560%2Cc_limit/OTQ_170306_0061.jpeg";
+        resultImage.style.display = "block";
+
       }
 
       if (value1 + value2 === 148 && value1 < value2) {
-        resultImage.src = "https://loremflickr.com/320/240/canada";
-        resultImage.style.display = "block";
+
+
         resultText.innerHTML =
           "Try reversing the letters for a surprise!";
       }
@@ -203,15 +238,15 @@
 
 
       if (value1 + value2 === 173 && value1 > value2) {
-        resultImage.src = "https://loremflickr.com/320/240/canada";
-        resultImage.style.display = "block";
         resultText.innerHTML =
           "You entered the abbreviation for Yukon Territory!";
+        resultImage.src = "https://www.travelyukon.com/sites/default/files/2022-08/hero_whereistheyukon.png";
+        resultImage.style.display = "block";
+
       }
 
       if (value1 + value2 === 173 && value1 < value2) {
-        resultImage.src = "https://loremflickr.com/320/240/arctic";
-        resultImage.style.display = "block";
+
         resultText.innerHTML =
           "Try reversing the letters for a surprise!";
       }
@@ -225,7 +260,7 @@
       }
 
       if (value1 === value2) {
-        resultImage.src = "https://loremflickr.com/320/240/arctic";
+        resultImage.src = "https://loremflickr.com/320/240/leaf";
         resultImage.style.display = "block";
         resultText.innerHTML =
           "You entered the same letter twice!";
@@ -238,10 +273,10 @@
 
       // If distance is exactly 5
       if (distance % 3 === 0 && value2 - value1 != 0) {
-        resultImage.src = "https://loremflickr.com/320/240/bird";
+        resultImage.src = "https://loremflickr.com/320/240/cat";
         resultImage.style.display = "block";
         resultText.innerHTML =
-          "The distance between these letters are divisible by 3. Enjoy a bird!";
+          "The distance between these letters is divisible by 3. Enjoy a cat!";
       }
 
       // Example 4: Sum of ASCII values is divisible by 10
